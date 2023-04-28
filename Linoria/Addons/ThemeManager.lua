@@ -213,7 +213,7 @@ local ThemeManager = {} do
 		end
 
 		table.insert(paths, self.Folder .. '/Themes')
-		table.insert(paths, self.Folder .. '/Settings')
+		table.insert(paths, self.Folder .. '/Configs')
 
 		for i = 1, #paths do
 			local str = paths[i]
