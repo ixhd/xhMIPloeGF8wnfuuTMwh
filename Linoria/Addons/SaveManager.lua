@@ -141,8 +141,8 @@ local SaveManager = {} do
 	function SaveManager:BuildFolderTree()
 		local paths = {
 			self.Folder,
-			self.Folder .. '/themes',
-			self.Folder .. '/settings'
+			self.Folder .. '/Themes',
+			self.Folder .. '/Configs'
 		}
 
 		for i = 1, #paths do
@@ -154,7 +154,7 @@ local SaveManager = {} do
 	end
 
 	function SaveManager:RefreshConfigList()
-		local list = listfiles(self.Folder .. '/settings')
+		local list = listfiles(self.Folder .. '/Configs')
 
 		local out = {}
 		for i = 1, #list do
@@ -185,8 +185,8 @@ local SaveManager = {} do
 	end
 
 	function SaveManager:LoadAutoloadConfig()
-		if isfile(self.Folder .. '/settings/autoload.txt') then
-			local name = readfile(self.Folder .. '/settings/autoload.txt')
+		if isfile(self.Folder .. '/Configs/autoload.cfg') then
+			local name = readfile(self.Folder .. '/Configs/autoload.cfg')
 
 			local success, err = self:Load(name)
 			if not success then
@@ -253,15 +253,15 @@ local SaveManager = {} do
 
 		section:AddButton('Set as autoload', function()
 			local name = Options.SaveManager_ConfigList.Value
-			writefile(self.Folder .. '/settings/autoload.txt', name)
+			writefile(self.Folder .. '/Configs/autoload.cfg', name)
 			SaveManager.AutoloadLabel:SetText('Current autoload config: ' .. name)
 			self.Library:Notify(string.format('Set %q to auto load', name))
 		end)
 
 		SaveManager.AutoloadLabel = section:AddLabel('Current autoload config: none', true)
 
-		if isfile(self.Folder .. '/settings/autoload.txt') then
-			local name = readfile(self.Folder .. '/settings/autoload.txt')
+		if isfile(self.Folder .. '/Configs/autoload.txt') then
+			local name = readfile(self.Folder .. '/Configs/autoload.txt')
 			SaveManager.AutoloadLabel:SetText('Current autoload config: ' .. name)
 		end
 
