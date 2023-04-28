@@ -159,10 +159,10 @@ local SaveManager = {} do
 		local out = {}
 		for i = 1, #list do
 			local file = list[i]
-			if file:sub(-5) == '.json' then
+			if file:sub(-5) == '.al' then
 				-- i hate this but it has to be done ...
 
-				local pos = file:find('.json', 1, true)
+				local pos = file:find('.al', 1, true)
 				local start = pos
 
 				local char = file:sub(pos, pos)
