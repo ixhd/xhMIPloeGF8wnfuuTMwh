@@ -50,7 +50,7 @@ local ThemeManager = {} do
 
 	function ThemeManager:LoadDefault()		
 		local theme = 'Default'
-		local content = isfile(self.Folder .. '/themes/default.al') and readfile(self.Folder .. '/themes/default.al')
+		local content = isfile(self.Folder .. '/Themes/default.al') and readfile(self.Folder .. '/Themes/default.al')
 
 		local isDefault = true
 		if content then
@@ -168,11 +168,11 @@ local ThemeManager = {} do
 			theme[field] = Options[field].Value:ToHex()
 		end
 
-		writefile(self.Folder .. '/themes/' .. file .. '.json', httpService:JSONEncode(theme))
+		writefile(self.Folder .. '/Themes/' .. file .. '.json', httpService:JSONEncode(theme))
 	end
 
 	function ThemeManager:ReloadCustomThemes()
-		local list = listfiles(self.Folder .. '/themes')
+		local list = listfiles(self.Folder .. '/Themes')
 
 		local out = {}
 		for i = 1, #list do
