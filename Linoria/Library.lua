@@ -27,6 +27,10 @@ local Options = {};
 getgenv().Toggles = Toggles;
 getgenv().Options = Options;
 
+if getgenv().Library then
+  ScreenGui:Remove()
+end
+
 local Library = {
     Registry = {};
     RegistryMap = {};
