@@ -30,6 +30,7 @@ getgenv().Options = Options;
 if getgenv().Library then
   ScreenGui:Remove()
 end
+getgenv().Library = Library
 
 local Library = {
     Registry = {};
