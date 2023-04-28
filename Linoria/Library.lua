@@ -55,11 +55,6 @@ local Library = {
 local RainbowStep = 0
 local Hue = 0
 
-if getgenv().Library then
-  ScreenGui:Remove()
-end
-getgenv().Library = Library
-
 table.insert(Library.Signals, RenderStepped:Connect(function(Delta)
     RainbowStep = RainbowStep + Delta
 
