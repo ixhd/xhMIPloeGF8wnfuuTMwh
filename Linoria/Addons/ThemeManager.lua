@@ -50,7 +50,7 @@ local ThemeManager = {} do
 
 	function ThemeManager:LoadDefault()		
 		local theme = 'Default'
-		local content = isfile(self.Folder .. '/themes/default.txt') and readfile(self.Folder .. '/themes/default.txt')
+		local content = isfile(self.Folder .. '/themes/default.al') and readfile(self.Folder .. '/themes/default.al')
 
 		local isDefault = true
 		if content then
@@ -72,7 +72,7 @@ local ThemeManager = {} do
 	end
 
 	function ThemeManager:SaveDefault(theme)
-		writefile(self.Folder .. '/themes/default.txt', theme)
+		writefile(self.Folder .. '/themes/default.al', theme)
 	end
 
 	function ThemeManager:CreateThemeManager(groupbox)
@@ -212,8 +212,8 @@ local ThemeManager = {} do
 			paths[#paths + 1] = table.concat(parts, '/', 1, idx)
 		end
 
-		table.insert(paths, self.Folder .. '/themes')
-		table.insert(paths, self.Folder .. '/settings')
+		table.insert(paths, self.Folder .. '/Themes')
+		table.insert(paths, self.Folder .. '/Settings')
 
 		for i = 1, #paths do
 			local str = paths[i]
